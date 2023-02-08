@@ -23,7 +23,6 @@ export default function Home() {
       }
 
       setResult(data.result);
-      setAnimalInput("");
     } catch(error) {
       // Consider implementing your own error handling logic here
       console.error(error);
@@ -40,18 +39,18 @@ export default function Home() {
 
       <main className={styles.main}>
         <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <h3>ChatGPT 尝试一下</h3>
         <form onSubmit={onSubmit}>
-          <input
+          <textarea
             type="text"
             name="animal"
-            placeholder="Enter an animal"
+            placeholder="Enter your question"
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input type="submit" value="Generate" />
         </form>
-        <div className={styles.result}>{result}</div>
+        <div className={styles.result} width="50%">{result}</div>
       </main>
     </div>
   );
