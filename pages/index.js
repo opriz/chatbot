@@ -72,7 +72,7 @@ export default function Home() {
           />
           <input id="submit" type="submit" value="告诉我" />
         </form>
-        <div className={styles.result} width="80%" dangerouslySetInnerHTML={{__html: result}}></div>
+        <div className={styles.result} width="80%">{result}</div>
       </main>
     </div>
   );
