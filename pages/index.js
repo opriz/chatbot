@@ -11,6 +11,8 @@ export default function Home() {
   async function onSubmit(event) {
     console.log("submit");
     document.getElementById("submit").setAttribute("disabled",true);
+    document.getElementById("submit").setAttribute("value", "请求中");
+
     event.preventDefault();
     try {
       const response = await fetch("/api/generate", {
@@ -34,6 +36,7 @@ export default function Home() {
     } finally {
       console.log("enabled");
       document.getElementById("submit").removeAttribute("disabled");
+      document.getElementById("submit").setAttribute("value", "告诉我");
     }
   }
 

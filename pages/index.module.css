@@ -66,6 +66,10 @@
   align-self: center;
   width: 30%;
 }
+.main input:disabled {
+  background: #F5F5F5;
+  color : #C3C3C3;
+}
 .main .result {
   font-weight: bold;
   margin-top: 40px;
