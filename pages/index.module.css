@@ -49,7 +49,7 @@
   outline-color: #10a37f;
 }
 .main textarea {
-  height: 200px;
+  height: 50px;
 }
 .main ::placeholder {
   color: #8e8ea0;
@@ -63,9 +63,11 @@
   border-radius: 4px;
   text-align: center;
   cursor: pointer;
+  align-self: center;
+  width: 30%;
 }
 .main .result {
   font-weight: bold;
   margin-top: 40px;
-  width: 50%;
+  width: 80%;
 }

@@ -33,13 +33,13 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
+        <title>TRY ChatGPT</title>
         <link rel="icon" href="/dog.png" />
       </Head>
 
       <main className={styles.main}>
         <img src="/dog.png" className={styles.icon} />
-        <h3>ChatGPT 尝试一下</h3>
+        <h3>TRY ChatGPT</h3>
         <form onSubmit={onSubmit}>
           <textarea
             type="text"
@@ -48,9 +48,9 @@ export default function Home() {
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
-          <input type="submit" value="Generate" />
+          <input type="submit" value="告诉我" />
         </form>
-        <div className={styles.result} width="50%">{result}</div>
+        <div className={styles.result} width="80%">{result}</div>
       </main>
     </div>
   );
