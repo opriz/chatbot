@@ -27,10 +27,6 @@ export default function Home() {
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
-      // setResult(data.result.replace(/\t/g, '    '));
-      let MarkdownIt = require('markdown-it'),
-        md = new MarkdownIt();
-      let res = md.render(data.result);
       setResult(res.replace(/\t/g, '    '));
     } catch (error) {
       // Consider implementing your own error handling logic here
