@@ -71,7 +71,8 @@
   color : #C3C3C3;
 }
 .main .result {
-  font-weight: bold;
+  font-weight:bold;
+  /* font-size: medium; */
   margin-top: 40px;
   width: 80%;
 }

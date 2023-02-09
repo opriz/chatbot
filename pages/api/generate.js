@@ -33,7 +33,7 @@ export default async function (req, res) {
       max_tokens: 1000,
     });
     res.status(200).json({ result: completion.data.choices[0].text });
-    console.log('Q:', req.body.animal, 'A:',completion.data.choices[0].text );
+    console.log('Q:', req.body.animal, '\nA:',completion.data.choices[0].text.trimStart());
     console.log(">>>>>>>>>>分割线>>>>>>>>>>");
   } catch(error) {
     // Consider adjusting the error handling logic for your use case

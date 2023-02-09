@@ -27,8 +27,11 @@ export default function Home() {
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
-
-      setResult(data.result);
+      // setResult(data.result.replace(/\t/g, '    '));
+      let MarkdownIt = require('markdown-it'),
+        md = new MarkdownIt();
+      let res = md.render(data.result);
+      setResult(res.replace(/\t/g, '    '));
     } catch (error) {
       // Consider implementing your own error handling logic here
       console.error(error);
@@ -73,7 +76,7 @@ export default function Home() {
           />
           <input id="submit" type="submit" value="告诉我" />
         </form>
-        <div className={styles.result} width="80%">{result}</div>
+        <div className={styles.result} width="80%" dangerouslySetInnerHTML={{__html: result}}></div>
       </main>
     </div>
   );
