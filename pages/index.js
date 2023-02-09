@@ -35,7 +35,6 @@ export default function Home() {
     } finally {
       console.log("enabled");
       document.getElementById("submit").removeAttribute("disabled");
-      alert("success");
     }
   }
 
