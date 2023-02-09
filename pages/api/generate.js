@@ -20,7 +20,6 @@ export default async function (req, res) {
   }
 
   const animal = req.body.animal || '';
-  console.log("question:", animal);
   if (animal.trim().length === 0) {
     res.status(400).json({
       error: {
@@ -37,7 +36,6 @@ export default async function (req, res) {
       temperature: 0.6,
       max_tokens: 1000,
     });
-    console.log(completion.data);
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch(error) {
     // Consider adjusting the error handling logic for your use case
