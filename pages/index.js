@@ -7,10 +7,10 @@ import styles from "./index.module.css";
 export default function Home() {
   const [animalInput, setAnimalInput] = useState("");
   const [result, setResult] = useState();
- 
+
   async function onSubmit(event) {
     console.log("submit");
-    document.getElementById("submit").setAttribute("disabled",true);
+    document.getElementById("submit").setAttribute("disabled", true);
     document.getElementById("submit").setAttribute("value", "请求中");
 
     event.preventDefault();
@@ -29,7 +29,7 @@ export default function Home() {
       }
 
       setResult(data.result);
-    } catch(error) {
+    } catch (error) {
       // Consider implementing your own error handling logic here
       console.error(error);
       alert(error.message);
@@ -45,25 +45,23 @@ export default function Home() {
       <Head>
         <title>TRY ChatGPT</title>
         <link rel="icon" href="/dog.png" />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-KZ4CDZ2250"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-KZ4CDZ2250');
-          `}
-        </Script>
       </Head>
-  
+      <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
+      <Script strategy="lazyOnload">
+      {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+          page_path: window.location.pathname,
+          });
+      `}
+      </Script>
+
       <main className={styles.main}>
         {/* <img src="/dog.png" className={styles.icon}></img> */}
-        <Image src="/dog.png" className={styles.icon} width={34} height={34} alt="" 
-          onLoadingComplete={()=>alert("受限于ChatGPT目前性能和本站服务器配置，响应时间平均约30s，请耐心等待勿重复提交 ^_^ \n欢迎反馈与建议 zhujianxyz@163.com 业余时间维护中")}/>
+        <Image src="/dog.png" className={styles.icon} width={34} height={34} alt=""
+          onLoadingComplete={() => alert("受限于ChatGPT目前性能和本站服务器配置，响应时间平均约30s，请耐心等待勿重复提交 ^_^ \n欢迎反馈与建议 zhujianxyz@163.com 业余时间维护中")} />
         <h3>TRY ChatGPT</h3>
         <form onSubmit={onSubmit}>
           <textarea
