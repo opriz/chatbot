@@ -48,6 +48,7 @@ export default function Home() {
         <title>TRY ChatGPT</title>
         <link rel="icon" href="/dog.png" />
       </Head>
+      <Script strategy="lazyOnload" src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADSENSE_KEY}`}></Script>
       <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
       <Script strategy="lazyOnload">
       {`
