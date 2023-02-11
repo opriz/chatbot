@@ -75,7 +75,7 @@ export default function Home() {
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
-          <input id="submit" type="submit" value="告诉我" />
+          <input id="submit" type="submit" value="暂不可用" disabled/>
         </form>
         <div className={styles.result} width="80%" dangerouslySetInnerHTML={{__html: result}}></div>
       </main>
