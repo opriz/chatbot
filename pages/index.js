@@ -63,7 +63,7 @@ export default function Home() {
       <main className={styles.main}>
         {/* <img src="/dog.png" className={styles.icon}></img> */}
         <Image src="/dog.png" className={styles.icon} width={34} height={34} alt=""
-          onLoadingComplete={() => alert("受限于ChatGPT性能和本站服务器性能，响应时间平均约30s，请耐心等待^_^\n暂不支持多轮会话\n欢迎反馈与建议: vx:ihtsan\n业余时间维护中")} />
+          onLoadingComplete={() => alert("由于ChatGPT限制，响应时间平均约30s，请耐心等待^_^\n暂不支持多轮会话\n欢迎反馈与建议vx:ihtsan")} />
         <h3>TRY ChatGPT</h3>
         <form onSubmit={onSubmit}>
           <textarea
