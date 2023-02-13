@@ -64,8 +64,8 @@ export default function Home() {
       <main className={styles.main}>
         {/* <img src="/dog.png" className={styles.icon}></img> */}
         <Image src="/dog.png" className={styles.icon} width={34} height={34} alt=""
-          // onLoadingComplete={() => alert("本站调用ChatGPT接口（GPT3.0 davinci03模型）\n由于其限制，响应时间平均约30s，请耐心等待^_^\n暂不支持多轮会话\n欢迎反馈与建议vx:ihtsan")} />
-          onLoadingComplete={() => alert("本站纯私人免费共享账号,影响到某些利益集团盈利,被攻击快速消耗完了调用ChatGPT的请求quota.\n恢复时间未知,请持续关注本站\n交流加我vx:ihtsan")} />
+          onLoadingComplete={() => alert("本站调用ChatGPT接口（GPT3.0 davinci03模型）\n由于其限制，响应时间平均约30s，请耐心等待^_^\n暂不支持多轮会话,长度限制约200字\n欢迎反馈与建议vx:ihtsan")} />
+          {/* onLoadingComplete={() => alert("本站纯私人免费共享账号,影响到某些利益集团盈利,被攻击快速消耗完了调用ChatGPT的请求quota.\n恢复时间未知,请持续关注本站\n交流加我vx:ihtsan")} /> */}
         <h3>TRY ChatGPT</h3>
         <form onSubmit={onSubmit}>
           <textarea
@@ -75,7 +75,7 @@ export default function Home() {
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
-          <input id="submit" type="submit" value="暂不可用" disabled/>
+          <input id="submit" type="submit" value="告诉我" />
         </form>
         <div className={styles.result} width="80%" dangerouslySetInnerHTML={{__html: result}}></div>
       </main>
