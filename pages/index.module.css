@@ -50,6 +50,8 @@
 }
 .main textarea {
   height: 50px;
+  /* resize: none; */
+  font-size: medium;
 }
 .main ::placeholder {
   color: #8e8ea0;
