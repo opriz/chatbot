@@ -13,7 +13,6 @@ export default function Home() {
     console.log("submit");
     document.getElementById("submit").setAttribute("disabled", true);
     document.getElementById("submit").setAttribute("value", "请求中");
-    setAlignByOS();
 
     event.preventDefault();
     try {
@@ -51,7 +50,6 @@ export default function Home() {
         iosPlatforms = ['iPhone', 'iPad', 'iPod'],
         os = null;
       platform = platform.toLowerCase();
-    alert(platform);
   
     if (macosPlatforms.indexOf(platform) !== -1) {
       os = 'MacOS';
