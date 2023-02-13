@@ -13,6 +13,7 @@ export default function Home() {
     console.log("submit");
     document.getElementById("submit").setAttribute("disabled", true);
     document.getElementById("submit").setAttribute("value", "请求中");
+    setAlignByOS();
 
     event.preventDefault();
     try {
@@ -42,6 +43,34 @@ export default function Home() {
     }
   }
 
+  async function setAlignByOS() {
+    var userAgent = window.navigator.userAgent,
+        platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
+        macosPlatforms = ['macos','mac os','macintosh', 'macintel', 'macppc', 'mac68k'],
+        windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+        iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+        os = null;
+      platform = platform.toLowerCase();
+    alert(platform);
+  
+    if (macosPlatforms.indexOf(platform) !== -1) {
+      os = 'MacOS';
+    } else if (iosPlatforms.indexOf(platform) !== -1) {
+      os = 'iOS';
+    } else if (windowsPlatforms.indexOf(platform) !== -1) {
+      os = 'Windows';
+    } else if (/Android/.test(userAgent)) {
+      os = 'Android';
+    } else if (/Linux/.test(platform)) {
+      os = 'Linux';
+    }
+
+    if (os=='Windows' || os=='MacOS') {
+      document.getElementById("result").style.width = "30%";
+    }
+  }
+  
+
   return (
     <div>
       <Head>
@@ -64,7 +93,10 @@ export default function Home() {
       <main className={styles.main}>
         {/* <img src="/dog.png" className={styles.icon}></img> */}
         <Image src="/dog.png" className={styles.icon} width={34} height={34} alt=""
-          onLoadingComplete={() => alert("本站调用ChatGPT接口（GPT3.0 davinci03模型）\n由于其限制，响应时间平均约30s，请耐心等待^_^\n暂不支持多轮会话,长度限制约200字\n欢迎反馈与建议vx:ihtsan")} />
+          onLoadingComplete={() => { 
+            alert("本站调用ChatGPT接口（GPT3.0 davinci03模型）\n由于其限制，响应时间平均约30s，请耐心等待^_^\n暂不支持多轮会话,长度限制约200字\n欢迎反馈与建议vx:ihtsan"); 
+            setAlignByOS();
+        }} />
           {/* onLoadingComplete={() => alert("本站纯私人免费共享账号,影响到某些利益集团盈利,被攻击快速消耗完了调用ChatGPT的请求quota.\n恢复时间未知,请持续关注本站\n交流加我vx:ihtsan")} /> */}
         <h3>TRY ChatGPT</h3>
         <form onSubmit={onSubmit}>
@@ -77,7 +109,7 @@ export default function Home() {
           />
           <input id="submit" type="submit" value="告诉我" />
         </form>
-        <div className={styles.result} width="80%" dangerouslySetInnerHTML={{__html: result}}></div>
+        <div id="result" className={styles.result} width="80%" dangerouslySetInnerHTML={{__html: result}}></div>
       </main>
     </div>
   );
