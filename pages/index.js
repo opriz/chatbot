@@ -92,7 +92,7 @@ export default function Home() {
         {/* <img src="/dog.png" className={styles.icon}></img> */}
         <Image src="/dog.png" className={styles.icon} width={34} height={34} alt=""
           onLoadingComplete={() => { 
-            alert("本站调用ChatGPT接口（GPT3.0 davinci03模型）\n由于其限制，响应时间平均约30s，请耐心等待^_^\n暂不支持多轮会话,长度限制约200字\n欢迎反馈与建议vx:ihtsan"); 
+            alert("本站调用ChatGPT接口（GPT3.0 davinci003模型）\n由于其限制，响应时间平均约30s，请耐心等待^_^\n暂不支持多轮会话,长度限制约200字\n欢迎反馈与建议vx:ihtsan"); 
             setAlignByOS();
         }} />
           {/* onLoadingComplete={() => alert("本站纯私人免费共享账号,影响到某些利益集团盈利,被攻击快速消耗完了调用ChatGPT的请求quota.\n恢复时间未知,请持续关注本站\n交流加我vx:ihtsan")} /> */}
