@@ -26,14 +26,20 @@ export default async function (req, res) {
   }
 
   try {
-    const completion = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: generatePrompt(animal),
-      temperature: 0.6,
+    const completion = await openai.createChatCompletion({
+      model:"gpt-3.5-turbo",
+      messages: [{role: "user", content:generatePrompt(animal)}],
       max_tokens: 500,
     });
-    res.status(200).json({ result: completion.data.choices[0].text });
-    console.log('Q:', req.body.animal, '\nA:',completion.data.choices[0].text.trimStart());
+    // const completion = await openai.createCompletion({
+    //   model: "gpt-3.5-turbo",
+    //   prompt: generatePrompt(animal),
+    //   temperature: 0.6,
+    //   max_tokens: 500,
+    // });
+    let ans =  completion.data.choices[0].message.content;
+    res.status(200).json({ result: ans });
+    console.log('Q:', req.body.animal, '\nA:', ans);
     console.log(">>>>>>>>>>分割线>>>>>>>>>>");
   } catch(error) {
     // Consider adjusting the error handling logic for your use case
