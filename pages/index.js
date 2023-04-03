@@ -87,6 +87,15 @@ export default function Home() {
           });
       `}
       </Script>
+      <Script>
+      {`
+          var textarea = document.querySelector('textarea');
+          textarea.addEventListener('input', (e) => {
+              textarea.style.height = '50px';
+              textarea.style.height = e.target.scrollHeight + 'px';
+          });
+      `}
+      </Script>
 
       <main className={styles.main}>
         {/* <img src="/dog.png" className={styles.icon}></img> */}
