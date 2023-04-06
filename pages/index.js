@@ -87,6 +87,7 @@ export default function Home() {
           });
       `}
       </Script>
+      <Script strategy="lazyOnload" src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8280428916076820`}></Script>
 
       <main className={styles.main}>
         {/* <img src="/dog.png" className={styles.icon}></img> */}

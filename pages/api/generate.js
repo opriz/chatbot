@@ -29,7 +29,7 @@ export default async function (req, res) {
     const completion = await openai.createChatCompletion({
       model:"gpt-3.5-turbo",
       messages: [{role: "user", content:generatePrompt(animal)}],
-      max_tokens: 500,
+      max_tokens: 4096,
     });
     // const completion = await openai.createCompletion({
     //   model: "gpt-3.5-turbo",
